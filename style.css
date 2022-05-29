@@ -8,89 +8,160 @@
   --primary-color: hsl(170, 100%, 26%);
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
+  --brandbeige: hsla(39, 100%, 97%);
+  --brandgreenlight: hsla(148, 23%, 89%);
 
-  font-size: 62.5%; /* 1rem = 10px */
+  --nav-height: 7.2rem;
+
+
+  font-size: 62.5%;
+  /* 1rem = 10px */
 }
+
+
 
 body {
   font-family: 'DM Sans';
   font-size: 1.6rem;
-
   text-align: center;
 }
 
-header {
+
+.wrapper {
   width: 37.5rem;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 4.1rem;
+  margin-inline: auto;
+  padding-inline: 2.4rem;
 }
 
-h4 {
+nav {
+  display: flex;
+
+  height: var(--nav-height);
+
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scroll {
+  background-color: var(--primary-color);
+  width: 100vw;
+}
+
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .wrapper svg:nth-child(1) path {
+  fill: white;
+}
+
+nav .wrapper svg:nth-child(2) path {
+  stroke: white;
+}
+
+
+header::before {
+  content: "";
+
+  display: block;
+  width: 100vw;
+  height: calc(100rem + var(--nav-height));
+  background-color: var(--brandgreenlight);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+
+header {
+
+  margin-top: calc(4.1rem + var(--nav-height));
+}
+
+header h4 {
   font-size: 1.4rem;
   color: var(--primary-color);
   margin-bottom: 1.6rem;
 }
 
-h1 {
+header h1 {
   font-size: 3.4rem;
   color: var(--headline);
   line-height: 130%;
-
   margin-bottom: 2.4rem;
 }
 
-p {
+header p {
   font-size: 1.8rem;
   line-height: 150%;
   font-weight: 400;
   color: var(--paragraph);
-
   margin-bottom: 3.2rem;
 }
 
-button {
+header button {
   background: var(--primary-color);
-
   border: none;
   border-radius: 4rem;
-
   margin-bottom: 6rem;
-
   height: 6.2rem;
   width: 26.3rem;
-
   color: white;
   font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
-
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1.6rem;
-
   margin: 0 auto;
+  cursor: pointer;
 }
+
+
+header img {
+  width: 26.4rem;
+  display: block;
+  margin-inline: auto;
+  object-position: 0 2rem;
+}
+
 
 
 .BoxesContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: #FFFAF1;
+  justify-content: center;
+  gap: 6rem;
+
   width: 32.7rem;
-  height: 47rem;
   margin: 0 auto;
+  padding-top: 4rem;
+  padding-block: 4rem;
+
+  background-color: var(--brandbeige);
+
+
   border: 1px solid #DCE9E2;
+  border-radius: .6rem;
 }
 
 .BoxesContainer div h3 {
   font-size: 4.8rem;
+  color: var(--headline);
+  line-height: 130%;
+  margin-bottom: .4rem;
 }
 
 .BoxesContainer div p {
   font-size: 1.6rem;
-  color: #00856F;
+  margin: 0;
+  color: var(--primary-color);
+  line-height: 150%;
 }
