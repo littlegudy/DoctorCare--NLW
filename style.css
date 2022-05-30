@@ -13,19 +13,22 @@
 
   --nav-height: 7.2rem;
 
-
   font-size: 62.5%;
   /* 1rem = 10px */
 }
 
-
-
+html,
 body {
-  font-family: 'DM Sans';
-  font-size: 1.6rem;
-  text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
+body {
+  font-family: "DM Sans";
+  font-size: 1.6rem;
+  text-align: center;
+  overflow: overlay;
+}
 
 .wrapper {
   width: 37.5rem;
@@ -55,14 +58,6 @@ nav .wrapper {
   justify-content: space-between;
 }
 
-nav .wrapper svg:nth-child(1) path {
-  fill: white;
-}
-
-nav .wrapper svg:nth-child(2) path {
-  stroke: white;
-}
-
 
 header::before {
   content: "";
@@ -78,9 +73,7 @@ header::before {
   z-index: -1;
 }
 
-
 header {
-
   margin-top: calc(4.1rem + var(--nav-height));
 }
 
@@ -124,15 +117,12 @@ header button {
   cursor: pointer;
 }
 
-
 header img {
   width: 26.4rem;
   display: block;
   margin-inline: auto;
   object-position: 0 2rem;
 }
-
-
 
 .BoxesContainer {
   display: flex;
@@ -147,16 +137,15 @@ header img {
 
   background-color: var(--brandbeige);
 
-
-  border: 1px solid #DCE9E2;
-  border-radius: .6rem;
+  border: 1px solid #dce9e2;
+  border-radius: 0.6rem;
 }
 
 .BoxesContainer div h3 {
   font-size: 4.8rem;
   color: var(--headline);
   line-height: 130%;
-  margin-bottom: .4rem;
+  margin-bottom: 0.4rem;
 }
 
 .BoxesContainer div p {
@@ -164,4 +153,121 @@ header img {
   margin: 0;
   color: var(--primary-color);
   line-height: 150%;
+}
+
+
+/* MENU EXPANDIDO */
+
+.menu-expanded> :not(nav) {
+  display: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.menu ul:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+
+  margin-top: 6rem;
+
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.menu-expanded {
+  overflow: hidden;
+}
+
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--primary-color);
+
+  width: 100vw;
+  height: 100vh;
+
+  padding-top: var(--nav-height);
+}
+
+body.menu-expanded nav {
+  position: relative;
+}
+
+.ButtonAgendarConsulta {
+  background: white;
+  border-radius: 4rem;
+
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 700;
+
+  color: var(--primary-color);
+
+  display: inline-block;
+  padding: 16px 32px;
+
+  margin-top: 4.8rem;
+  margin-bottom: 8rem;
+
+}
+
+.LinksSocialMedia {
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo,
+.menu-expanded button {
+  position: relative;
+  z-index: 1;
+}
+
+nav.scroll svg:nth-child(1) path {
+  fill: white;
+}
+
+nav.scroll button path {
+  stroke: white;
+}
+
+.menu-expanded .logo path {
+  fill: white;
+}
+
+.menu-expanded button path {
+  stroke: white;
+}
+
+nav button {
+  border: none;
+  cursor: pointer;
+  background: none;
 }
