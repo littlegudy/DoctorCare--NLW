@@ -8,7 +8,7 @@
   --primary-color: hsl(170, 100%, 26%);
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
-  --brandbeige: hsla(39, 100%, 97%);
+  --brandbeige: hsl(39, 100%, 97%);
   --brandgreenlight: hsla(148, 23%, 89%);
   --bg--light: hsl(180, 14%, 97%);
 
@@ -43,8 +43,55 @@ body {
   padding-inline: 2.4rem;
 }
 
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
 section {
   padding-block: 10rem;
+}
+
+section header h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
+  color: var(--primary-color);
+
+  text-transform: uppercase;
+
+  margin-bottom: 1.6rem;
+}
+
+section header h2 {
+  line-height: 3.9rem;
+  font-size: 3rem;
+
+  color: var(--headline);
+}
+
+section header h1 {
+  font-size: 3.4rem;
+  color: var(--headline);
+  line-height: 130%;
+
+  margin-bottom: 2.4rem;
+}
+
+section .content p {
+  color: var(--paragraph);
+  font-weight: 400;
+  font-size: 1.6rem;
+
+  line-height: 150%;
+}
+
+.scroll {
+  background-color: var(--primary-color);
 }
 
 nav {
@@ -59,16 +106,126 @@ nav {
   z-index: 1;
 }
 
-.scroll {
-  background-color: var(--primary-color);
-}
-
 nav .wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+nav button {
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+nav.scroll .logo path {
+  fill: white;
+}
+
+nav.scroll button path {
+  stroke: white;
+}
+
+/* MENU EXPANDIDO */
+
+.menu-expanded> :not(nav) {
+  visibility: hidden;
+}
+
+.menu ul:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+
+  margin-top: 6rem;
+
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.menu-expanded {
+  overflow: hidden;
+}
+
+.menu {
+  transform: translateY(100%);
+}
+
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--primary-color);
+
+  width: 100vw;
+  height: 100vh;
+
+  padding-top: var(--nav-height);
+
+  transition: transform 300ms;
+  transform: translateY(0);
+}
+
+.ButtonAgendarConsulta {
+  background: white;
+  border-radius: 4rem;
+
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 700;
+
+  color: var(--primary-color);
+
+  display: inline-block;
+  padding: 16px 32px;
+
+  margin-top: 4.8rem;
+  margin-bottom: 8rem;
+}
+
+.LinksSocialMedia {
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo,
+.menu-expanded button {
+  position: relative;
+  z-index: 1;
+}
+
+.menu-expanded .logo path {
+  fill: white;
+}
+
+.menu-expanded button path {
+  stroke: white;
+}
+
+/* HOME ============================= */
 #home {
   padding-top: calc(4.1rem + var(--nav-height));
 }
@@ -85,19 +242,6 @@ nav .wrapper {
   top: 0;
   left: 0;
   z-index: -1;
-}
-
-#home h4 {
-  font-size: 1.4rem;
-  color: var(--primary-color);
-  margin-bottom: 1.6rem;
-}
-
-#home h1 {
-  font-size: 3.4rem;
-  color: var(--headline);
-  line-height: 130%;
-  margin-bottom: 2.4rem;
 }
 
 #home p {
@@ -165,144 +309,9 @@ nav .wrapper {
   line-height: 150%;
 }
 
-/* MENU EXPANDIDO */
-
-.menu-expanded> :not(nav) {
-  visibility: hidden;
-}
-
-ul {
-  list-style: none;
-}
-
-.menu ul:first-child {
-  display: flex;
-  flex-direction: column;
-  gap: 4.8rem;
-
-  margin-top: 6rem;
-
-  font-weight: 700;
-  font-size: 2.4rem;
-  line-height: 3.1rem;
-}
-
-.menu ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-.menu,
-.close-menu,
-body.menu-expanded .open-menu {
-  opacity: 0;
-  visibility: hidden;
-}
-
-body.menu-expanded .menu,
-body.menu-expanded .close-menu {
-  opacity: 1;
-  visibility: visible;
-}
-
-body.menu-expanded {
-  overflow: hidden;
-}
-
-.menu {
-  transform: translateY(100%);
-
-}
-
-body.menu-expanded .menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: var(--primary-color);
-
-  width: 100vw;
-  height: 100vh;
-
-  padding-top: var(--nav-height);
-
-  transition: transform 300ms;
-  transform: translateY(0);
-
-}
-
-.ButtonAgendarConsulta {
-  background: white;
-  border-radius: 4rem;
-
-  font-size: 1.8rem;
-  line-height: 2.3rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: 700;
-
-  color: var(--primary-color);
-
-  display: inline-block;
-  padding: 16px 32px;
-
-  margin-top: 4.8rem;
-  margin-bottom: 8rem;
-}
-
-.LinksSocialMedia {
-  display: flex;
-  gap: 3.2rem;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo,
-.menu-expanded button {
-  position: relative;
-  z-index: 1;
-}
-
-nav.scroll .logo path {
-  fill: white;
-}
-
-nav.scroll button path {
-  stroke: white;
-}
-
-.menu-expanded .logo path {
-  fill: white;
-}
-
-.menu-expanded button path {
-  stroke: white;
-}
-
-nav button {
-  border: none;
-  cursor: pointer;
-  background: none;
-}
-
 /* CARDS SERVICES*/
 
-#services header h4 {
-  font-size: 1.4rem;
-  line-height: 150%;
-  letter-spacing: 0.08rem;
-  text-transform: uppercase;
-
-  color: var(--primary-color);
-
-  margin-bottom: 1.6rem;
-}
-
 #services header h2 {
-  line-height: 3.9rem;
-  font-size: 3rem;
-
-  color: var(--headline);
-
   margin-bottom: 6rem;
 }
 
@@ -324,4 +333,20 @@ nav button {
 
 #services .card h3 {
   margin-block: 1.6rem;
+}
+
+/* ABOUT =========================*/
+
+#about {
+  text-align: left;
+  color: var(--brandbeige);
+}
+
+#about header h2 {
+  margin-bottom: 2.4rem;
+}
+
+#about .content p {
+  margin-top: 2.4rem;
+  margin-bottom: 6rem;
 }

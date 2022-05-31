@@ -24,5 +24,8 @@ ScrollReveal({
   #home .BoxesContainer,
   #services,
   #services header,
-  #services .card`);
+  #services .card,
+  #abou,
+  #about header,
+  #about .content`);
 
