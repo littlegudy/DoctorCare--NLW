@@ -481,6 +481,11 @@ footer .LinksSocialMedia {
     padding-block: 16rem;
   }
 
+  section h2 {
+    font-size: 4rem;
+    line-height: 5.2rem;
+  }
+
   /* reset ========= */
   nav#navscroll .wrapper * {
     margin: 0;
@@ -668,6 +673,19 @@ footer .LinksSocialMedia {
 
   /* services ========= */
 
+  #services h2 {
+    width: 47rem;
+    margin-inline: auto;
+  }
 
+  #services .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #services .card {
+    width: 30%;
+    flex-grow: 1;
+  }
 
 }
